@@ -1,0 +1,35 @@
+.starwarswatchlist-wrapper {
+    background-color: #000;
+    & .heading {
+        color:#FFF;
+        background-image: url(../assets/bg-lightsabers.jpg);
+        padding: 40px 0;
+        min-height: 14em;
+        & h1 {
+            margin: 0;
+            padding: 20px 0 0;
+            font-size: 4em;
+        }
+        & h3 {
+            margin: 0;
+        }
+        & p {
+            margin: 0;
+        }
+    }
+    & .star-wars-watch-list {
+        & div:nth-child(odd) {
+            background-color: dodgerblue;
+        }
+        & div:nth-child(even) {
+            background-color: blueviolet;
+        }
+        & div:hover {
+            background-color: limegreen;
+        }
+        & h2 {
+            margin: 0 auto;
+            padding: 10px 0;
+        }
+    }
+}
