@@ -1,0 +1,97 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+}
+
+#pumpkin-page {
+  background-color: #000;
+}
+
+.wrapper {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  perspective: 10px;
+  & header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    transform-style: preserve-3d;
+    z-index: -1;
+    & .background {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      z-index: -1;
+      transform: translateZ(-10px) scale(2);
+    }
+    & .foreground {
+      position: absolute;
+      height: 300px;
+      width: 300px;
+      transform: translateZ(-5px) scale(1.5);
+      border: 10px solid #000;
+      left: 0;
+    }
+    &#art .foreground,
+    &#alice .foreground,
+    &#norris .foreground,
+    &#nightking .foreground,
+    &#mother .foreground,
+    &#freddy .foreground,
+    &#eddie .foreground,
+    &#horseman .foreground {
+      right: 0;
+      left: auto;
+    }
+
+    & .title {
+      font-size: 4rem;
+      color: #fff;
+      text-shadow: 0 0 5px #000;
+    }
+  }
+  & section {
+    font-size: 1.5rem;
+    padding: 2rem;
+    background-color: #111;
+    color: #fff;
+    min-height: 350px;
+    & p {
+      max-width: 750px;
+      margin: 25px auto;
+    }
+  }
+}
+
+.nav {
+  margin: 0 auto;
+  & li {
+    display: inline-block;
+    margin: 5px 0;
+    & a {
+      color: orange;
+      text-shadow: 2px 1px 1px #000;
+      border: 1px solid orange;
+      border-width: 1px 0;
+      margin: 3px 5px;
+      padding: 2px 5px;
+      font-size: 14px;
+      text-align: center;
+      background: none !important;
+      font-weight: bold;
+      &:hover {
+        border-color: red;
+        cursor: pointer;
+      }
+      & img {
+        max-height: 25px;
+      }
+    }
+  }
+}
