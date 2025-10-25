@@ -1,95 +1,117 @@
+import React, { useEffect, useState } from "react";
+import { Link, useMatch, useResolvedPath } from "react-router-dom";
 import "../styles/Halloween.scss";
 
 const Halloween = () => {
+  const [halloweenMenuOpen, setHalloweenMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const navElement = document.querySelector("nav");
+    navElement.style.display = "none";
+  }, []);
+
   return (
     <>
-      <div id="pumpkin-page">
-        <ul class="nav">
-          <li>
-            <a href="#tile2024" class="cursor-pointer">
-              2024 Darth Vader
-            </a>
-          </li>
-          <li>
-            <a href="#tile2023" class="cursor-pointer">
-              2023 Halloween Owl
-            </a>
-          </li>
-          <li>
-            <a href="#tile2022" class="cursor-pointer">
-              2022 Art the Clown
-            </a>
-          </li>
-          <li>
-            <a href="#tile2021" class="cursor-pointer">
-              2021 Alice Cooper
-            </a>
-          </li>
-          <li>
-            <a href="#tile2020" class="cursor-pointer">
-              2020 The Thing
-            </a>
-          </li>
-          <li>
-            <a href="#tile2019" class="cursor-pointer">
-              2019 Night King
-            </a>
-          </li>
-          <li>
-            <a href="#tile2018" class="cursor-pointer">
-              2018 Aliens Mother
-            </a>
-          </li>
-          <li>
-            <a href="#tile2017" class="cursor-pointer">
-              2017 Freddy Krueger
-            </a>
-          </li>
-          <li>
-            <a href="#tile2016" class="cursor-pointer">
-              2016 Negan
-            </a>
-          </li>
-          <li>
-            <a href="#tile2015b" class="cursor-pointer">
-              2015b The Crow
-            </a>
-          </li>
-          <li>
-            <a href="#tile2015a" class="cursor-pointer">
-              2015a Walter White
-            </a>
-          </li>
-          <li>
-            <a href="#tile2014" class="cursor-pointer">
-              2014 Daryl Dixon
-            </a>
-          </li>
-          <li>
-            <a href="#tile2013" class="cursor-pointer">
-              2013 Eddie
-            </a>
-          </li>
-          <li>
-            <a href="#tile2012" class="cursor-pointer">
-              2012 Headless Horseman
-            </a>
-          </li>
-          <li>
-            <a href="#tile2011" class="cursor-pointer">
-              2011 Pumpkin Scarecrow & Jolly Roger
-            </a>
-          </li>
-        </ul>
-      </div>
+      <div className="wrapper halloween-wrapper">
+        <nav>
+          <Link to="/" className="site-title">
+            Home
+          </Link>
+          <div
+            className="menu"
+            onClick={() => {
+              setHalloweenMenuOpen(!halloweenMenuOpen);
+            }}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
 
-      <div class="wrapper">
+          <ul className={halloweenMenuOpen ? "open" : ""}>
+            <li>
+              <a href="#tile2024" className="cursor-pointer">
+                2024 Darth Vader
+              </a>
+            </li>
+            <li>
+              <a href="#tile2023" className="cursor-pointer">
+                2023 Halloween Owl
+              </a>
+            </li>
+            <li>
+              <a href="#tile2022" className="cursor-pointer">
+                2022 Art the Clown
+              </a>
+            </li>
+            <li>
+              <a href="#tile2021" className="cursor-pointer">
+                2021 Alice Cooper
+              </a>
+            </li>
+            <li>
+              <a href="#tile2020" className="cursor-pointer">
+                2020 The Thing
+              </a>
+            </li>
+            <li>
+              <a href="#tile2019" className="cursor-pointer">
+                2019 Night King
+              </a>
+            </li>
+            <li>
+              <a href="#tile2018" className="cursor-pointer">
+                2018 Aliens Mother
+              </a>
+            </li>
+            <li>
+              <a href="#tile2017" className="cursor-pointer">
+                2017 Freddy Krueger
+              </a>
+            </li>
+            <li>
+              <a href="#tile2016" className="cursor-pointer">
+                2016 Negan
+              </a>
+            </li>
+            <li>
+              <a href="#tile2015b" className="cursor-pointer">
+                2015b The Crow
+              </a>
+            </li>
+            <li>
+              <a href="#tile2015a" className="cursor-pointer">
+                2015a Walter White
+              </a>
+            </li>
+            <li>
+              <a href="#tile2014" className="cursor-pointer">
+                2014 Daryl Dixon
+              </a>
+            </li>
+            <li>
+              <a href="#tile2013" className="cursor-pointer">
+                2013 Eddie
+              </a>
+            </li>
+            <li>
+              <a href="#tile2012" className="cursor-pointer">
+                2012 Headless Horseman
+              </a>
+            </li>
+            <li>
+              <a href="#tile2011" className="cursor-pointer">
+                2011 Scarecrow
+              </a>
+            </li>
+          </ul>
+        </nav>
         <header id="intro">
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/bg-pumpkins-intro.webp"
-            class="background"
+            className="background"
           />
-          <h1 class="title">
+          <h1 className="title">
             Nothing like a good pumpkin carving around Halloween!
           </h1>
         </header>
@@ -109,13 +131,13 @@ const Halloween = () => {
         <header id="vader">
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/bg-darth-vader2.webp"
-            class="background"
+            className="background"
           />
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/2024-pumpkin-darth-vader.webp"
-            class="foreground"
+            className="foreground"
           />
-          <h1 class="title">2024 Darth Vader</h1>
+          <h1 className="title">2024 Darth Vader</h1>
         </header>
         <section>
           <p>
@@ -131,13 +153,13 @@ const Halloween = () => {
         <header id="owl">
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/bg-owl.webp"
-            class="background"
+            className="background"
           />
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/2023-pumpkin-halloween-owl.webp"
-            class="foreground"
+            className="foreground"
           />
-          <h1 class="title">2023 The Owl</h1>
+          <h1 className="title">2023 The Owl</h1>
         </header>
         <section>
           <p>
@@ -154,13 +176,13 @@ const Halloween = () => {
         <header id="art">
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/bg-terrifier.webp"
-            class="background"
+            className="background"
           />
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/2022-pumpkin-terrifier.webp"
-            class="foreground"
+            className="foreground"
           />
-          <h1 class="title">2022 Art the Clown</h1>
+          <h1 className="title">2022 Art the Clown</h1>
         </header>
         <section>
           <p>
@@ -174,13 +196,13 @@ const Halloween = () => {
         <header id="alice">
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/bg-alice-cooper.webp"
-            class="background"
+            className="background"
           />
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/2021-pumpkin-alice-cooper.webp"
-            class="foreground"
+            className="foreground"
           />
-          <h1 class="title">2021 Alice Cooper</h1>
+          <h1 className="title">2021 Alice Cooper</h1>
         </header>
         <section>
           <p>
@@ -196,13 +218,13 @@ const Halloween = () => {
         <header id="norris">
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/bg-the-thing.webp"
-            class="background"
+            className="background"
           />
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/2020-pumpkin-the-thing.webp"
-            class="foreground"
+            className="foreground"
           />
-          <h1 class="title">2020 The Thing's Norris</h1>
+          <h1 className="title">2020 The Thing's Norris</h1>
         </header>
         <section>
           <p>
@@ -219,13 +241,13 @@ const Halloween = () => {
         <header id="nightking">
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/bg-night-king.webp"
-            class="background"
+            className="background"
           />
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/2019-pumpkin-night-king.webp"
-            class="foreground"
+            className="foreground"
           />
-          <h1 class="title">2019 Night King</h1>
+          <h1 className="title">2019 Night King</h1>
         </header>
         <section>
           <p>
@@ -240,13 +262,13 @@ const Halloween = () => {
         <header id="mother">
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/bg-alien-xenomorph2.webp"
-            class="background"
+            className="background"
           />
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/2018-pumpkin-aliens-xenomorph.webp"
-            class="foreground"
+            className="foreground"
           />
-          <h1 class="title">2018 Mother</h1>
+          <h1 className="title">2018 Mother</h1>
         </header>
         <section>
           <p>
@@ -263,13 +285,13 @@ const Halloween = () => {
         <header id="freddy">
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/bg-Freddy-Krueger.webp"
-            class="background"
+            className="background"
           />
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/2017-pumpkin-freddy-krueger.webp"
-            class="foreground"
+            className="foreground"
           />
-          <h1 class="title">2017 Freddy Krueger</h1>
+          <h1 className="title">2017 Freddy Krueger</h1>
         </header>
         <section>
           <p>
@@ -290,13 +312,13 @@ const Halloween = () => {
         <header id="negan">
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/bg-Negan-The-Walking-Dead.webp"
-            class="background"
+            className="background"
           />
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/2016-pumpkin-negan.webp"
-            class="foreground"
+            className="foreground"
           />
-          <h1 class="title">2016 Negan</h1>
+          <h1 className="title">2016 Negan</h1>
         </header>
         <section>
           <p>
@@ -313,21 +335,21 @@ const Halloween = () => {
         <header id="ericdraven">
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/bg-Eric-Draven-The-Crow.webp"
-            class="background"
+            className="background"
           />
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/2015b-pumpkin-eric-draven.webp"
-            class="foreground"
+            className="foreground"
           />
-          <h1 class="title">2015b Eric Draven</h1>
+          <h1 className="title">2015b Eric Draven</h1>
         </header>
         <section>
           <p>
             Eric Draven is the central character in The Crow comic book and film
             series, most famously portrayed by Brandon Lee in the 1994 cult
-            classic movie. He was a rock musician who was resurrected from the
-            dead to avenge his own murder and the murder of his fiancée, Shelly
-            Webster.
+            classNameic movie. He was a rock musician who was resurrected from
+            the dead to avenge his own murder and the murder of his fiancée,
+            Shelly Webster.
           </p>
         </section>
 
@@ -335,13 +357,13 @@ const Halloween = () => {
         <header id="walterwhite">
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/bg-Walter-White-Breaking-Bad.webp"
-            class="background"
+            className="background"
           />
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/2015a-pumpkin-walter-white.webp"
-            class="foreground"
+            className="foreground"
           />
-          <h1 class="title">2015a Walter White</h1>
+          <h1 className="title">2015a Walter White</h1>
         </header>
         <section>
           <p>
@@ -361,13 +383,13 @@ const Halloween = () => {
         <header id="daryldixon">
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/bg-Daryl-Dixon-The-Walking-Dead.webp"
-            class="background"
+            className="background"
           />
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/2014-pumpkin-daryl-dixon.webp"
-            class="foreground"
+            className="foreground"
           />
-          <h1 class="title">2014 Daryl Dixon</h1>
+          <h1 className="title">2014 Daryl Dixon</h1>
         </header>
         <section>
           <p>
@@ -384,13 +406,13 @@ const Halloween = () => {
         <header id="eddie">
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/bg-Eddie-Iron-Maiden.webp"
-            class="background"
+            className="background"
           />
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/2013-pumpkin-eddie1.webp"
-            class="foreground"
+            className="foreground"
           />
-          <h1 class="title">2013 Eddie</h1>
+          <h1 className="title">2013 Eddie</h1>
         </header>
         <section>
           <p>
@@ -408,13 +430,13 @@ const Halloween = () => {
         <header id="horseman">
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/bg-headless-horseman.webp"
-            class="background"
+            className="background"
           />
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/2012-pumpkin-headless-horseman1.webp"
-            class="foreground"
+            className="foreground"
           />
-          <h1 class="title">2012 The Headless Horseman</h1>
+          <h1 className="title">2012 The Headless Horseman</h1>
         </header>
         <section>
           <p>
@@ -433,13 +455,13 @@ const Halloween = () => {
         <header id="scarecrow">
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/bg-scarecrow.webp"
-            class="background"
+            className="background"
           />
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/2011-pumpkin-scarecrow1.webp"
-            class="foreground"
+            className="foreground"
           />
-          <h1 class="title">2011 Scarecrow</h1>
+          <h1 className="title">2011 Scarecrow</h1>
         </header>
         <section>
           <p>
