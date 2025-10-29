@@ -10,6 +10,7 @@
 # --- Force proper MIME types for JS/CSS ---
 AddType application/javascript .js
 AddType text/css .css
+AddType image/png .png
 Header set Access-Control-Allow-Origin "*"
 <IfModule mod_rewrite.c>
   RewriteEngine On
