@@ -1,4 +1,8 @@
-html, body, #root {
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap');
+
+html,
+body,
+#root {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -17,15 +21,27 @@ html {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-family: "Impact", cursive;
+  font-size: 25vw;
+  background-image: url(../assets/media.png);
+  background-clip: text;
+  color: transparent;
+  margin: 0;
+  -webkit-text-stroke: 2px orange;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -36,7 +52,7 @@ code {
 .button {
   background-color: #036a8d;
   border-radius: 8px;
-  padding:10px 20px;
+  padding: 10px 20px;
   transition-duration: 0.4s;
   color: white;
   text-align: center;
@@ -46,19 +62,20 @@ code {
 .button-card {
   border: none;
   padding: 0;
-  background-color: #CCC;
+  background-color: #ccc;
 }
 
 .button-card:hover {
   border: none;
   padding: 0;
   cursor: pointer;
-  transform: scale(1.1)
+  transform: scale(1.1);
 }
 
 .button:hover {
-  background-color: #008CBA;
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  background-color: #008cba;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 .disabled {
@@ -81,7 +98,7 @@ code {
 
 dialog {
   border-radius: 25px;
-  box-shadow: 5px 5px 5px #AAA;
+  box-shadow: 5px 5px 5px #aaa;
   transition: display 1s allow-discrete, overlay 1s allow-discrete;
   animation: close 1s forwards;
   &[open] {
@@ -91,7 +108,7 @@ dialog {
 
 dialog::backdrop {
   background-color: #000;
-  opacity: .85;
+  opacity: 0.85;
 }
 
 dialog .close-button {
@@ -99,7 +116,7 @@ dialog .close-button {
   top: 15px;
   right: 15px;
   border-radius: 10px;
-  background-color: #BBB;
+  background-color: #bbb;
   font-weight: 800;
 }
 
@@ -125,7 +142,8 @@ dialog .close-button:hover {
   }
 }
 
-#beverages input, #beverages-future input {
+#beverages input,
+#beverages-future input {
   width: 60%;
   font-size: 22px;
 }
