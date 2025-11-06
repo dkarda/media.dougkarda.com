@@ -25,12 +25,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
-  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-h1 {
+h1.fancy-header {
   font-family: "Impact", cursive;
   font-size: 25vw;
   background-image: url(../assets/media.png);
