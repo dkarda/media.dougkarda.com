@@ -7,6 +7,7 @@ import Halloween from './pages/Halloween'
 import MusicCalendar from "./pages/MusicCalendar"
 import StarWarsWatchList from "./pages/StarWarsWatchList"
 import ErrorBoundary from "./components/ErrorBoundary"
+import TopMovies from "./pages/TopMovies"
 
 export const router = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ export const router = createBrowserRouter([
     element: <App />,
     children: [
       { index: true, element: <Home />, errorElement: <ErrorBoundary />},
+      { path: "topmovies", element: <TopMovies />, errorElement: <ErrorBoundary />},
       { path: "movieproject", element: <MovieProject />, errorElement: <ErrorBoundary />},
       { path: "moviefavorites", element: <MovieFavorites />, errorElement: <ErrorBoundary />},
       { path: "halloween", element: <Halloween />, errorElement: <ErrorBoundary />},

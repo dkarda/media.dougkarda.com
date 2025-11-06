@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import "../styles/MovieProject.scss";
-import MovieCard from "../components/MovieCard";
+import MovieProjectCard from "../components/MovieProjectCard";
 import { getPopularMovies, searchMovies } from "../services/api";
-import { MovieProvider } from "../contexts/MovieContext";
 
 const MovieProject = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -34,45 +33,44 @@ const MovieProject = () => {
     setLoading(true);
 
     try {
-        const searchResults = await searchMovies(searchQuery)
-        setMovies(searchResults)
-        setError(null)
+      const searchResults = await searchMovies(searchQuery);
+      setMovies(searchResults);
+      setError(null);
     } catch (err) {
-      console.log(err)
-      setError("Failed to search movies")
+      console.log(err);
+      setError("Failed to search movies");
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-
   };
 
   return (
     <>
-        <h1>Movie Project</h1>
-        <form onSubmit={handleSearch} className="search-form">
-          <input
-            type="text"
-            placeholder="Search for movies..."
-            className="search-input"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-          <button type="submit" className="search-button">
-            Search
-          </button>
-        </form>
+      <h1>Movie Project</h1>
+      <form onSubmit={handleSearch} className="search-form">
+        <input
+          type="text"
+          placeholder="Search for movies..."
+          className="search-input"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+        <button type="submit" className="search-button">
+          Search
+        </button>
+      </form>
 
-        {error && <div className="error-message">{error}</div>}
+      {error && <div className="error-message">{error}</div>}
 
-        {loading ? (
-          <div className="loading">loading...</div>
-        ) : (
-          <div className="movies-grid">
-            {movies.map((movie) => (
-              <MovieCard key={movie.id} movie={movie} />
-            ))}
-          </div>
-        )}
+      {loading ? (
+        <div className="loading">loading...</div>
+      ) : (
+        <div className="movies-grid">
+          {movies.map((movie) => (
+            <MovieProjectCard key={movie.id} movie={movie} />
+          ))}
+        </div>
+      )}
     </>
   );
 };
