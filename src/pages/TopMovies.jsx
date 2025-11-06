@@ -7,7 +7,7 @@ import {
 import MovieCard from "../components/MovieCard";
 
 const TopMovies = () => {
-  const [selectedGenre, setselectedGenre] = useState("War");
+  const [selectedGenre, setselectedGenre] = useState("");
   const [movies, setMovies] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([])
   const [error, setError] = useState(null);
@@ -39,11 +39,11 @@ const TopMovies = () => {
 
   return (
     <>
-      <h1>DEF Top Movie Lists</h1>
+      <h1>DEF TOP MOVIES LISTS</h1>
       {genreList.map((genre, index) => (
         <button
           key={index}
-          className="button"
+          className={selectedGenre === genre ? "button active" : "button"}
           onClick={() => setselectedGenre(genre)}
         >
           {genre}
@@ -53,9 +53,9 @@ const TopMovies = () => {
       {error && <div className="error-message">{error}</div>}
 
       {loading ? (
-        <div className="loading">loading...</div>
+        <div className="loading">Loading...</div>
       ) : selectedGenre === "" ? (
-        <div>Need to select a genre</div>
+        <h2>Select a category agove to see my category rankings</h2>
       ) : (
         <>
         <h2>Top {filteredMovies.length} {selectedGenre} Movies</h2>
