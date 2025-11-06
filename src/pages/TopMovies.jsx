@@ -1,52 +1,70 @@
 import { useEffect, useState } from "react";
-import { getTopMovies, getTopMoviesByGenre } from "../services/api";
+import {
+  getTopMovies,
+  getTopMoviesByGenre,
+  getUniqueListNames,
+} from "../services/api";
 import MovieCard from "../components/MovieCard";
 
 const TopMovies = () => {
-  const [genres, setGenres] = useState([]);
-  const [selectedGenre, setselectedGenre] = useState("Sports");
+  const [selectedGenre, setselectedGenre] = useState("War");
   const [movies, setMovies] = useState([]);
+  const [filteredMovies, setFilteredMovies] = useState([])
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadTopMovies = async () => {
       try {
-        const topMovies = await getTopMovies();
-        setMovies(topMovies);
+        const topMovies = await getTopMovies()
+        setMovies(topMovies)
+        setFilteredMovies(topMovies)
       } catch (err) {
-        console.log(err);
-        setError("Failed to load movies");
+        console.log(err)
+        setError("Failed to load movies")
       } finally {
-        setLoading(false);
+        setLoading(false)
       }
     };
 
     loadTopMovies();
   }, []);
 
-  getTopMoviesByGenre(movies, selectedGenre);
+  const genreList = getUniqueListNames(movies);
 
-  //   console.log('movies = ', movies)
+  useEffect(() => {
+    const tempMovies = getTopMoviesByGenre(movies, selectedGenre);
+    setFilteredMovies(tempMovies);
+  }, [selectedGenre, movies]);
 
   return (
     <>
       <h1>DEF Top Movie Lists</h1>
-
-      <select>
-        <option></option>
-      </select>
+      {genreList.map((genre, index) => (
+        <button
+          key={index}
+          className="button"
+          onClick={() => setselectedGenre(genre)}
+        >
+          {genre}
+        </button>
+      ))}
 
       {error && <div className="error-message">{error}</div>}
 
       {loading ? (
         <div className="loading">loading...</div>
+      ) : selectedGenre === "" ? (
+        <div>Need to select a genre</div>
       ) : (
+        <>
+        <h2>Top {filteredMovies.length} {selectedGenre} Movies</h2>
         <div className="movies-grid">
-          {movies.map((movie) => (
-            <MovieCard key={movie.imdbID} movie={movie} />
+          {filteredMovies.map((movie, index) => (
+            <MovieCard movie={movie} rank={index} key={movie.id} />
           ))}
         </div>
+        </>
       )}
     </>
   );

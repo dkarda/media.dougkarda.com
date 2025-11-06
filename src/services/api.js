@@ -27,10 +27,20 @@ export const getTopMovies = async (genre) => {
   return filteredData;
 };
 
-export const getTopMoviesByGenre = async (movies, genre) => {
-  const filteredGenre = movies.filter((movie) =>
-    movie.toplists.some((toplist) => toplist.listName == genre)
+export const getUniqueListNames = (movies) => {
+  const all = movies.flatMap((movie) =>
+    movie.toplists.map((item) => item.listName)
   );
+  return [...new Set(all)].sort((a, b) => a.localeCompare(b));
+};
 
+export const getTopMoviesByGenre = (movies, genre) => {
+  const filteredGenre = movies
+    .filter(movie => movie.toplists.some((toplist) => toplist.listName == genre))
+    .sort((a, b) => {
+      const rankA = a.toplists.find(t => t.listName === genre)?.listRank || 9999;
+      const rankB = b.toplists.find(t => t.listName === genre)?.listRank || 9999;
+      return rankA - rankB;
+    })
   return filteredGenre;
 };
