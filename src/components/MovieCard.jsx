@@ -13,9 +13,9 @@ function MovieCard({ movie, rank }) {
         <div className="movie-overlay"></div>
       </div>
       <div className="movie-info">
-        <h3>{rank + 1}&#41; {movie.Title}</h3>
+        <h3><span className="rank">{rank}</span> {movie.Title}</h3>
         <p>{movie.Year}</p>
-        <p>DK rating: {movie.score}</p>
+        <p>DK rating: {movie.score}/10</p>
       </div>
     </div>
   );

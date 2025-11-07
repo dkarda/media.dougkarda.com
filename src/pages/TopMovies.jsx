@@ -60,10 +60,10 @@ const TopMovies = () => {
         <div className={styles.loading}>Loading...</div>
       ) : selectedGenre === "default" ? (
         <>
-          <h2>&uarr; Select a category agove to see my category rankings &uarr;</h2>
+          <h2>&uarr; Select a category above to see my category rankings &uarr;</h2>
           <div className={styles.moviesGridDefault}>
             {filteredMovies.map((movie, index) => (
-              <MovieCard movie={movie} rank={index} key={movie.id} />
+              <MovieCard movie={movie} rank={index+1} key={movie.id} />
             ))}
             <div className={styles.banner}>
               <h2>ARE YOUR FAVORITES IN SYNC WITH MINE?</h2>
@@ -76,8 +76,8 @@ const TopMovies = () => {
             Top {filteredMovies.length} {selectedGenre} Movies
           </h2>
           <div className={styles.moviesGrid}>
-            {filteredMovies.map((movie, index) => (
-              <MovieCard movie={movie} rank={index} key={movie.id} />
+            {[...filteredMovies].reverse().map((movie, index) => (
+              <MovieCard movie={movie} rank={filteredMovies.length - index} key={movie.id} />
             ))}
           </div>
         </>

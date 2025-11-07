@@ -84,25 +84,33 @@
 }
 
 .movie-info {
-  padding: 1rem 2rem;
+  padding: 1rem;
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   text-align: left;
-}
-
-.movie-info h3 {
-  color: #FFF;
-  font-size: 1rem;
-  margin: 0;
-}
-
-.movie-info p {
+  & h3 {
+    color: #fff;
+    font-size: 1rem;
+    margin: 0;
+    line-height: 2rem;
+    & .rank {
+      background: red;
+      border-radius: 15px;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-align: center;    }
+  }
+  & p {
   color: #999;
   font-size: 0.9rem;
   margin: 0;
 }
+
+}
+
 
 .user-rating {
   color: #ffd700;
