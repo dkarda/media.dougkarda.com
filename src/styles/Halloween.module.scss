@@ -67,11 +67,11 @@ body {
   }
 }
 
-nav:has(+ container > .halloween-wrapper) {
+nav:has(+ container > .halloweenWrapper) {
   display: none;
 }
 
-.halloween-wrapper nav {
+.halloweenWrapper nav {
   margin: 0 auto;
   & ul {
     display: unset;
@@ -102,7 +102,7 @@ nav:has(+ container > .halloween-wrapper) {
 }
 
 @media (max-width: 666px) {
-  .halloween-wrapper nav {
+  .halloweenWrapper nav {
     & .site-title {
       font-size: 2.2em;
     }
@@ -129,7 +129,7 @@ nav:has(+ container > .halloween-wrapper) {
       }
     }
   }
-  .halloween-wrapper header .title {
+  .halloweenWrapper header .title {
     font-size: 3em;
   }
 }

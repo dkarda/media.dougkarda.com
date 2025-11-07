@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import '../styles/MusicCalendar.scss'
+import styles from '../styles/MusicCalendar.module.scss'
 
 const MusicCalendar = () => {
   document.title = "DEF Music Calendar"
@@ -25,13 +25,13 @@ const MusicCalendar = () => {
     }, []);
   
   return (
-      <div id="music-calendar">
+      <div id={styles.musicCalendar}>
           <h1>The DEF Music Calendar</h1>
-          <div className="layout-container">
+          <div className={styles.layoutContainer}>
               {data
                   .map((item, key) => (
-                    <div key={key} className={item.summary.indexOf('+')===0 ? "attending" : ""}>
-                      <span className={item.summary.indexOf('cd')===0 ? "new-music" : ""}>
+                    <div key={key} className={item.summary.indexOf('+')===0 ? styles.attending : ""}>
+                      <span className={item.summary.indexOf('cd')===0 ? styles.newMusic : ""}>
                         [{item.start.date}] {item.summary}
                       </span>
                     </div>

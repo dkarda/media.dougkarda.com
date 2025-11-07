@@ -1,4 +1,4 @@
-.starwarswatchlist-wrapper {
+.starwarswatchlistWrapper {
     background-color: #000;
     & .heading {
         color:#FFF;
@@ -17,7 +17,7 @@
             margin: 0;
         }
     }
-    & .star-wars-watch-list {
+    & .starwarswatchlist {
         & div:nth-child(odd) {
             background-color: dodgerblue;
         }

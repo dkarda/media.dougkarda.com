@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "../styles/StarWarsWatchList.scss";
+import styles from  "../styles/StarWarsWatchList.module.scss";
 
 function StarWarsWatchList() {
   document.title = "DEF Star Wars Watchlist";
@@ -24,13 +24,13 @@ function StarWarsWatchList() {
 
   return (
     <>
-      <div className="starwarswatchlist-wrapper">
-        <div className="heading">
+      <div className={styles.starwarswatchlistWrapper}>
+        <div className={styles.heading}>
           <h1>Star Wars Watch List</h1>
           <h3>Here's a suggested watch order to navigate the timeline</h3>
           <p>(last updated August 2024)</p>
         </div>
-        <div className="star-wars-watch-list">
+        <div className={styles.starwarswatchlist}>
           {data.map((item, index) => (
             <div key={index}>
               <h2>{item.title}</h2>

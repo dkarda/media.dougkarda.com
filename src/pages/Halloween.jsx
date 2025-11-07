@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
-import "../styles/Halloween.scss";
+import styles from "../styles/Halloween.module.scss";
 
 const Halloween = () => {
   const [halloweenMenuOpen, setHalloweenMenuOpen] = useState(false);
@@ -12,13 +12,13 @@ const Halloween = () => {
 
   return (
     <>
-      <div className="wrapper halloween-wrapper">
+      <div className={`${styles.wrapper} ${styles.halloweenWrapper}`}>
         <nav>
-          <Link to="/" className="site-title">
+          <Link to="/" className={styles.siteTitle}>
             Home
           </Link>
           <div
-            className="menu"
+            className={styles.menu}
             onClick={() => {
               setHalloweenMenuOpen(!halloweenMenuOpen);
             }}
@@ -30,88 +30,88 @@ const Halloween = () => {
 
           <ul className={halloweenMenuOpen ? "open" : ""}>
             <li>
-              <a href="#tile2024" className="cursor-pointer">
+              <a href="#tile2024">
                 2024 Darth Vader
               </a>
             </li>
             <li>
-              <a href="#tile2023" className="cursor-pointer">
+              <a href="#tile2023">
                 2023 Halloween Owl
               </a>
             </li>
             <li>
-              <a href="#tile2022" className="cursor-pointer">
+              <a href="#tile2022">
                 2022 Art the Clown
               </a>
             </li>
             <li>
-              <a href="#tile2021" className="cursor-pointer">
+              <a href="#tile2021">
                 2021 Alice Cooper
               </a>
             </li>
             <li>
-              <a href="#tile2020" className="cursor-pointer">
+              <a href="#tile2020">
                 2020 The Thing
               </a>
             </li>
             <li>
-              <a href="#tile2019" className="cursor-pointer">
+              <a href="#tile2019">
                 2019 Night King
               </a>
             </li>
             <li>
-              <a href="#tile2018" className="cursor-pointer">
+              <a href="#tile2018">
                 2018 Aliens Mother
               </a>
             </li>
             <li>
-              <a href="#tile2017" className="cursor-pointer">
+              <a href="#tile2017">
                 2017 Freddy Krueger
               </a>
             </li>
             <li>
-              <a href="#tile2016" className="cursor-pointer">
+              <a href="#tile2016">
                 2016 Negan
               </a>
             </li>
             <li>
-              <a href="#tile2015b" className="cursor-pointer">
+              <a href="#tile2015b">
                 2015b The Crow
               </a>
             </li>
             <li>
-              <a href="#tile2015a" className="cursor-pointer">
+              <a href="#tile2015a">
                 2015a Walter White
               </a>
             </li>
             <li>
-              <a href="#tile2014" className="cursor-pointer">
+              <a href="#tile2014">
                 2014 Daryl Dixon
               </a>
             </li>
             <li>
-              <a href="#tile2013" className="cursor-pointer">
+              <a href="#tile2013">
                 2013 Eddie
               </a>
             </li>
             <li>
-              <a href="#tile2012" className="cursor-pointer">
+              <a href="#tile2012">
                 2012 Headless Horseman
               </a>
             </li>
             <li>
-              <a href="#tile2011" className="cursor-pointer">
+              <a href="#tile2011">
                 2011 Scarecrow
               </a>
             </li>
           </ul>
         </nav>
-        <header id="intro">
+        <header id={styles.intro}>
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/bg-pumpkins-intro.webp"
-            className="background"
+            className={styles.background}
           />
-          <h1 className="title">
+          <h1 className={styles.title}>
             Nothing like a good pumpkin carving around Halloween!
           </h1>
         </header>
@@ -131,13 +131,13 @@ const Halloween = () => {
         <header id="vader">
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/bg-darth-vader2.webp"
-            className="background"
+            className={styles.background}
           />
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/2024-pumpkin-darth-vader.webp"
-            className="foreground"
+            className={styles.foreground}
           />
-          <h1 className="title">2024 Darth Vader</h1>
+          <h1 className={styles.title}>2024 Darth Vader</h1>
         </header>
         <section>
           <p>
@@ -153,13 +153,13 @@ const Halloween = () => {
         <header id="owl">
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/bg-owl.webp"
-            className="background"
+            className={styles.background}
           />
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/2023-pumpkin-halloween-owl.webp"
-            className="foreground"
+            className={styles.foreground}
           />
-          <h1 className="title">2023 The Owl</h1>
+          <h1 className={styles.title}>2023 The Owl</h1>
         </header>
         <section>
           <p>
@@ -176,13 +176,13 @@ const Halloween = () => {
         <header id="art">
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/bg-terrifier.webp"
-            className="background"
+            className={styles.background}
           />
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/2022-pumpkin-terrifier.webp"
-            className="foreground"
+            className={styles.foreground}
           />
-          <h1 className="title">2022 Art the Clown</h1>
+          <h1 className={styles.title}>2022 Art the Clown</h1>
         </header>
         <section>
           <p>
@@ -196,13 +196,13 @@ const Halloween = () => {
         <header id="alice">
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/bg-alice-cooper.webp"
-            className="background"
+            className={styles.background}
           />
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/2021-pumpkin-alice-cooper.webp"
-            className="foreground"
+            className={styles.foreground}
           />
-          <h1 className="title">2021 Alice Cooper</h1>
+          <h1 className={styles.title}>2021 Alice Cooper</h1>
         </header>
         <section>
           <p>
@@ -218,13 +218,13 @@ const Halloween = () => {
         <header id="norris">
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/bg-the-thing.webp"
-            className="background"
+            className={styles.background}
           />
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/2020-pumpkin-the-thing.webp"
-            className="foreground"
+            className={styles.foreground}
           />
-          <h1 className="title">2020 The Thing's Norris</h1>
+          <h1 className={styles.title}>2020 The Thing's Norris</h1>
         </header>
         <section>
           <p>
@@ -241,13 +241,13 @@ const Halloween = () => {
         <header id="nightking">
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/bg-night-king.webp"
-            className="background"
+            className={styles.background}
           />
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/2019-pumpkin-night-king.webp"
-            className="foreground"
+            className={styles.foreground}
           />
-          <h1 className="title">2019 Night King</h1>
+          <h1 className={styles.title}>2019 Night King</h1>
         </header>
         <section>
           <p>
@@ -262,13 +262,13 @@ const Halloween = () => {
         <header id="mother">
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/bg-alien-xenomorph2.webp"
-            className="background"
+            className={styles.background}
           />
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/2018-pumpkin-aliens-xenomorph.webp"
-            className="foreground"
+            className={styles.foreground}
           />
-          <h1 className="title">2018 Mother</h1>
+          <h1 className={styles.title}>2018 Mother</h1>
         </header>
         <section>
           <p>
@@ -285,13 +285,13 @@ const Halloween = () => {
         <header id="freddy">
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/bg-Freddy-Krueger.webp"
-            className="background"
+            className={styles.background}
           />
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/2017-pumpkin-freddy-krueger.webp"
-            className="foreground"
+            className={styles.foreground}
           />
-          <h1 className="title">2017 Freddy Krueger</h1>
+          <h1 className={styles.title}>2017 Freddy Krueger</h1>
         </header>
         <section>
           <p>
@@ -312,13 +312,13 @@ const Halloween = () => {
         <header id="negan">
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/bg-Negan-The-Walking-Dead.webp"
-            className="background"
+            className={styles.background}
           />
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/2016-pumpkin-negan.webp"
-            className="foreground"
+            className={styles.foreground}
           />
-          <h1 className="title">2016 Negan</h1>
+          <h1 className={styles.title}>2016 Negan</h1>
         </header>
         <section>
           <p>
@@ -335,13 +335,13 @@ const Halloween = () => {
         <header id="ericdraven">
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/bg-Eric-Draven-The-Crow.webp"
-            className="background"
+            className={styles.background}
           />
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/2015b-pumpkin-eric-draven.webp"
-            className="foreground"
+            className={styles.foreground}
           />
-          <h1 className="title">2015b Eric Draven</h1>
+          <h1 className={styles.title}>2015b Eric Draven</h1>
         </header>
         <section>
           <p>
@@ -357,13 +357,13 @@ const Halloween = () => {
         <header id="walterwhite">
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/bg-Walter-White-Breaking-Bad.webp"
-            className="background"
+            className={styles.background}
           />
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/2015a-pumpkin-walter-white.webp"
-            className="foreground"
+            className={styles.foreground}
           />
-          <h1 className="title">2015a Walter White</h1>
+          <h1 className={styles.title}>2015a Walter White</h1>
         </header>
         <section>
           <p>
@@ -383,13 +383,13 @@ const Halloween = () => {
         <header id="daryldixon">
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/bg-Daryl-Dixon-The-Walking-Dead.webp"
-            className="background"
+            className={styles.background}
           />
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/2014-pumpkin-daryl-dixon.webp"
-            className="foreground"
+            className={styles.foreground}
           />
-          <h1 className="title">2014 Daryl Dixon</h1>
+          <h1 className={styles.title}>2014 Daryl Dixon</h1>
         </header>
         <section>
           <p>
@@ -406,13 +406,13 @@ const Halloween = () => {
         <header id="eddie">
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/bg-Eddie-Iron-Maiden.webp"
-            className="background"
+            className={styles.background}
           />
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/2013-pumpkin-eddie1.webp"
-            className="foreground"
+            className={styles.foreground}
           />
-          <h1 className="title">2013 Eddie</h1>
+          <h1 className={styles.title}>2013 Eddie</h1>
         </header>
         <section>
           <p>
@@ -430,13 +430,13 @@ const Halloween = () => {
         <header id="horseman">
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/bg-headless-horseman.webp"
-            className="background"
+            className={styles.background}
           />
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/2012-pumpkin-headless-horseman1.webp"
-            className="foreground"
+            className={styles.foreground}
           />
-          <h1 className="title">2012 The Headless Horseman</h1>
+          <h1 className={styles.title}>2012 The Headless Horseman</h1>
         </header>
         <section>
           <p>
@@ -455,13 +455,13 @@ const Halloween = () => {
         <header id="scarecrow">
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/bg-scarecrow.webp"
-            className="background"
+            className={styles.background}
           />
           <img
             src="https://assets.dougkarda.com/images/halloween/pumpkins/2011-pumpkin-scarecrow1.webp"
-            className="foreground"
+            className={styles.foreground}
           />
-          <h1 className="title">2011 Scarecrow</h1>
+          <h1 className={styles.title}>2011 Scarecrow</h1>
         </header>
         <section>
           <p>
