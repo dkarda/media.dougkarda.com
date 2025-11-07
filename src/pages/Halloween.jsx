@@ -30,79 +30,52 @@ const Halloween = () => {
 
           <ul className={halloweenMenuOpen ? "open" : ""}>
             <li>
-              <a href="#tile2024">
-                2024 Darth Vader
-              </a>
+              <a href="#tile2025">2025 Regan MacNeil</a>
             </li>
             <li>
-              <a href="#tile2023">
-                2023 Halloween Owl
-              </a>
+              <a href="#tile2024">2024 Darth Vader</a>
             </li>
             <li>
-              <a href="#tile2022">
-                2022 Art the Clown
-              </a>
+              <a href="#tile2023">2023 Halloween Owl</a>
             </li>
             <li>
-              <a href="#tile2021">
-                2021 Alice Cooper
-              </a>
+              <a href="#tile2022">2022 Art the Clown</a>
             </li>
             <li>
-              <a href="#tile2020">
-                2020 The Thing
-              </a>
+              <a href="#tile2021">2021 Alice Cooper</a>
             </li>
             <li>
-              <a href="#tile2019">
-                2019 Night King
-              </a>
+              <a href="#tile2020">2020 The Thing</a>
             </li>
             <li>
-              <a href="#tile2018">
-                2018 Aliens Mother
-              </a>
+              <a href="#tile2019">2019 Night King</a>
             </li>
             <li>
-              <a href="#tile2017">
-                2017 Freddy Krueger
-              </a>
+              <a href="#tile2018">2018 Aliens Mother</a>
             </li>
             <li>
-              <a href="#tile2016">
-                2016 Negan
-              </a>
+              <a href="#tile2017">2017 Freddy Krueger</a>
             </li>
             <li>
-              <a href="#tile2015b">
-                2015b The Crow
-              </a>
+              <a href="#tile2016">2016 Negan</a>
             </li>
             <li>
-              <a href="#tile2015a">
-                2015a Walter White
-              </a>
+              <a href="#tile2015b">2015b The Crow</a>
             </li>
             <li>
-              <a href="#tile2014">
-                2014 Daryl Dixon
-              </a>
+              <a href="#tile2015a">2015a Walter White</a>
             </li>
             <li>
-              <a href="#tile2013">
-                2013 Eddie
-              </a>
+              <a href="#tile2014">2014 Daryl Dixon</a>
             </li>
             <li>
-              <a href="#tile2012">
-                2012 Headless Horseman
-              </a>
+              <a href="#tile2013">2013 Eddie</a>
             </li>
             <li>
-              <a href="#tile2011">
-                2011 Scarecrow
-              </a>
+              <a href="#tile2012">2012 Headless Horseman</a>
+            </li>
+            <li>
+              <a href="#tile2011">2011 Scarecrow</a>
             </li>
           </ul>
         </nav>
@@ -124,6 +97,31 @@ const Halloween = () => {
             starting to build a little resume for ourselves, and garnishing
             interest from family and friends, I decided to share some of our
             work here. Hope you enjoy! Cheers
+          </p>
+        </section>
+
+        <a name="tile2025"></a>
+        <header id="regan">
+          <img
+            src="https://assets.dougkarda.com/images/halloween/pumpkins/bg-regan-macneil-exorcist.webp"
+            className={styles.background}
+          />
+          <img
+            src="https://assets.dougkarda.com/images/halloween/pumpkins/2025-regan-macneil.webp"
+            className={styles.foreground}
+          />
+          <h1 className={styles.title}>2025 Regan MacNeil</h1>
+        </header>
+        <section>
+          <p>
+            Regan is a shy, creative young woman who becomes possessed by the
+            demon Pazuzu. Regan assumes a strange, aggressive behavior that
+            worries and scares her mother, and begins to develop progressively
+            inhuman traits and mannerisms. Her mother, Chris, consults
+            physicians and psychiatrists, but no somatic nor psychiatric causes
+            are found. The doctors finally suggest an exorcism, as patients who
+            believe they are possessed sometimes benefit from ritualized
+            treatment.
           </p>
         </section>
 
