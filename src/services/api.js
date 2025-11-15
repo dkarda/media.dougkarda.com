@@ -22,9 +22,15 @@ export const getTopMovies = async (genre) => {
   const response = await fetch(
     `${import.meta.env.VITE_DATA_BASE_URL}/movies.json`
   );
+  const response2 = await fetch(
+    `${import.meta.env.VITE_DATA_BASE_URL}/television.json`
+  );
   const data = await response.json();
+  const data2 = await response2.json();
   const filteredData = data.filter((movie) => movie.toplists);
-  return filteredData;
+  const filteredData2 = data2.filter((show) => show.toplists);
+  const dataFinal = filteredData.concat(filteredData2);
+  return dataFinal;
 };
 
 export const getUniqueListNames = (movies) => {
