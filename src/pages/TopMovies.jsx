@@ -9,7 +9,7 @@ import {
 import MovieCard from "../components/MovieCard";
 
 const TopMovies = () => {
-  const [selectedGenre, setselectedGenre] = useState("default");
+  const [selectedList, setSelectedList] = useState("default");
   const [movies, setMovies] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [error, setError] = useState(null);
@@ -37,18 +37,18 @@ const TopMovies = () => {
   );
 
   useEffect(() => {
-    const tempMovies = getTopMoviesByGenre(movies, selectedGenre);
+    const tempMovies = getTopMoviesByGenre(movies, selectedList);
     setFilteredMovies(tempMovies);
-  }, [selectedGenre, movies]);
+  }, [selectedList, movies]);
 
   return (
     <>
-      <h1>DEF TOP MOVIES LISTS</h1>
+      <h1>DEF TOP MOVIES/TV LISTS</h1>
       {genreList.map((genre, index) => (
         <button
           key={index}
-          className={selectedGenre === genre ? "button active" : "button"}
-          onClick={() => setselectedGenre(genre)}
+          className={selectedList === genre ? "button active" : "button"}
+          onClick={() => setSelectedList(genre)}
         >
           {genre}
         </button>
@@ -58,7 +58,7 @@ const TopMovies = () => {
 
       {loading ? (
         <div className={styles.loading}>Loading...</div>
-      ) : selectedGenre === "default" ? (
+      ) : selectedList === "default" ? (
         <>
           <h2>&uarr; Select a category above to see my category rankings &uarr;</h2>
           <div className={styles.moviesGridDefault}>
@@ -73,7 +73,7 @@ const TopMovies = () => {
       ) : (
         <>
           <h2>
-            Top {filteredMovies.length} {selectedGenre} Movies
+            Top {filteredMovies.length} {selectedList}
           </h2>
           <div className={styles.moviesGrid}>
             {[...filteredMovies].reverse().map((movie, index) => (
