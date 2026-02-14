@@ -1,17 +1,51 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import styles from "./Halloween.module.scss";
 
 const Halloween = () => {
   const [halloweenMenuOpen, setHalloweenMenuOpen] = useState(false);
+  const [scrollTop, setScrollTop] = useState(0);
+
+  const containerRef = useRef(null);
 
   useEffect(() => {
-    const navElement = document.querySelector("nav");
+    const navEl = document.getElementsByClassName("navbar")[0];
+    const element = containerRef.current;
+    if (!element) return;
+
+    const handleScroll = () => {
+      const newScrollTop = element.scrollTop;
+      setScrollTop(newScrollTop);
+      console.log("ScrollTop:", newScrollTop);
+      console.log("NavEl:", navEl);
+      console.log("containerRef:", containerRef);
+
+      if (newScrollTop > 150) {
+        navEl.classList.add("hidden");
+        navEl.classList.remove("visible");
+        containerRef.current.style.marginTop = "0px";
+      } else {
+        navEl.classList.remove("hidden");
+        navEl.classList.add("visible");
+        containerRef.current.style.marginTop = "75px";
+      }
+    };
+
+    element.addEventListener("scroll", handleScroll);
+    return () => {
+      element.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
     <>
-      <div id="top" className={`${styles.wrapper} ${styles.halloweenWrapper}`}>
-        <a href="#top" className={styles.backToTop}>BACK TO TOP</a>
+      <div
+        id="top"
+        className={`${styles.wrapper} ${styles.halloweenWrapper}`}
+        ref={containerRef}
+      >
+        <a href="#top" className={styles.backToTop}>
+          BACK TO TOP
+        </a>
         <nav>
           <div
             className={styles.menu}

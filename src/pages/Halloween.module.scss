@@ -82,12 +82,9 @@ body {
   }
 }
 
-nav:has(+ container > .halloweenWrapper) {
-  display: none;
-}
-
 .halloweenWrapper nav {
   margin: 0 auto;
+  position: sticky;
   & ul {
     display: unset;
   }
