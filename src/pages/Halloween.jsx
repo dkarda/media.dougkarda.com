@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link, useMatch, useResolvedPath } from "react-router-dom";
 import styles from "./Halloween.module.scss";
 
 const Halloween = () => {
@@ -7,7 +6,6 @@ const Halloween = () => {
 
   useEffect(() => {
     const navElement = document.querySelector("nav");
-    navElement.style.display = "none";
   }, []);
 
   return (
@@ -15,9 +13,6 @@ const Halloween = () => {
       <div id="top" className={`${styles.wrapper} ${styles.halloweenWrapper}`}>
         <a href="#top" className={styles.backToTop}>BACK TO TOP</a>
         <nav>
-          <Link to="/" className={styles.siteTitle}>
-            Home
-          </Link>
           <div
             className={styles.menu}
             onClick={() => {

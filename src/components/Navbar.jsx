@@ -1,13 +1,30 @@
-import { useState } from "react";
-import { Link, useMatch, useResolvedPath } from "react-router-dom";
-import "../styles/Navbar.scss";
+  import { useState, useRef, useEffect } from "react";
+  import { Link, useMatch, useResolvedPath } from "react-router-dom";
+  import "../styles/Navbar.scss";
 
-const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const Navbar = () => {
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [showNavbar, setShowNavbar] = useState(true);
+    const lastScrollY = useRef(0);
 
-  return (
-    <>
-      <nav>
+    useEffect(() => {
+      const handleScroll = () => {
+        if (window.scrollY > lastScrollY.current && window.scrollY > 150) {
+          setShowNavbar(false);
+        } else {
+          setShowNavbar(true);
+        }
+
+        lastScrollY.current = window.scrollY;
+        console.log("ScrollY:", window.scrollY, "LastScrollY:", lastScrollY.current);
+      };
+
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    return (
+      <nav className={`navbar ${showNavbar ? "visible" : "hidden"}`}>
         <Link to="/" className="site-title">
           Home
         </Link>
@@ -51,20 +68,20 @@ const Navbar = () => {
             <span>Pumpkin Carvings</span>
           </CustomLink>
           {/* <CustomLink to="/movies">
-                        <img src="https://assets.dougkarda.com/images/icons/icon-movie-trans.png"
-                            alt="Movies icon" />
-                        <span>Movies</span>
-                    </CustomLink> */}
+                          <img src="https://assets.dougkarda.com/images/icons/icon-movie-trans.png"
+                              alt="Movies icon" />
+                          <span>Movies</span>
+                      </CustomLink> */}
           {/* <CustomLink to="/tv">
-                        <img src="https://assets.dougkarda.com/images/icons/icon-tv-trans.png"
-                            alt="TV icon" />
-                        <span>Television</span>
-                    </CustomLink> */}
+                          <img src="https://assets.dougkarda.com/images/icons/icon-tv-trans.png"
+                              alt="TV icon" />
+                          <span>Television</span>
+                      </CustomLink> */}
           {/* <CustomLink to="/concerthistory">
-                        <img src="https://assets.dougkarda.com/images/icons/icon-concerthistory-trans.png"
-                            alt="Concert History icon" />
-                        <span>Concert History</span>
-                    </CustomLink> */}
+                          <img src="https://assets.dougkarda.com/images/icons/icon-concerthistory-trans.png"
+                              alt="Concert History icon" />
+                          <span>Concert History</span>
+                      </CustomLink> */}
           <CustomLink to="/starwarswatchlist">
             <img
               src="https://assets.dougkarda.com/images/icons/icon-starwars-trans.png"
@@ -73,15 +90,15 @@ const Navbar = () => {
             <span>Star Wars Watchlist</span>
           </CustomLink>
           {/* <CustomLink to="/weather">
-                        <img src="https://assets.dougkarda.com/images/icons/icon-weather-trans.png"
-                            alt="Weather icon" />
-                        <span>Weather</span>
-                    </CustomLink> */}
+                          <img src="https://assets.dougkarda.com/images/icons/icon-weather-trans.png"
+                              alt="Weather icon" />
+                          <span>Weather</span>
+                      </CustomLink> */}
           {/* <CustomLink to="/photogallery">
-                        <img src="https://assets.dougkarda.com/images/icons/icon-camera-trans.jpg"
-                            alt="Camera icon" />
-                        <span></span>
-                    </CustomLink> */}
+                          <img src="https://assets.dougkarda.com/images/icons/icon-camera-trans.jpg"
+                              alt="Camera icon" />
+                          <span></span>
+                      </CustomLink> */}
           <CustomLink to="/MusicCalendar">
             <img
               src="https://assets.dougkarda.com/images/icons/icon-concerts-trans.png"
@@ -90,32 +107,31 @@ const Navbar = () => {
             <span>Music Calendar</span>
           </CustomLink>
           {/* <CustomLink to="/musicians">
-                        <img src="https://assets.dougkarda.com/images/icons/icon-musicians-trans.png"
-                            alt="Musicians icon" />
-                        <span>Musicians</span>
-                    </CustomLink>
-                    <CustomLink to="/todo">
-                        <img src="https://assets.dougkarda.com/images/icons/icon-todo-trans.png"
-                            alt="Todo list icon" />
-                        <span>To Do List</span>
-                    </CustomLink> */}
+                          <img src="https://assets.dougkarda.com/images/icons/icon-musicians-trans.png"
+                              alt="Musicians icon" />
+                          <span>Musicians</span>
+                      </CustomLink>
+                      <CustomLink to="/todo">
+                          <img src="https://assets.dougkarda.com/images/icons/icon-todo-trans.png"
+                              alt="Todo list icon" />
+                          <span>To Do List</span>
+                      </CustomLink> */}
         </ul>
       </nav>
-    </>
-  );
-};
+    );
+  };
 
-function CustomLink({ to, children, ...props }) {
-  const resolvedPath = useResolvedPath(to);
-  const isActive = useMatch({ path: resolvedPath.pathname, end: true });
-  const id = `nav-${to.replace("/", "").toLowerCase()}`;
-  return (
-    <li className={isActive ? "active" : ""}>
-      <Link to={to} id={id} {...props}>
-        {children}
-      </Link>
-    </li>
-  );
-}
+  function CustomLink({ to, children, ...props }) {
+    const resolvedPath = useResolvedPath(to);
+    const isActive = useMatch({ path: resolvedPath.pathname, end: true });
+    const id = `nav-${to.replace("/", "").toLowerCase()}`;
+    return (
+      <li className={isActive ? "active" : ""}>
+        <Link to={to} id={id} {...props}>
+          {children}
+        </Link>
+      </li>
+    );
+  }
 
-export default Navbar;
+  export default Navbar;

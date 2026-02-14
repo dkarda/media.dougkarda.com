@@ -20,15 +20,6 @@ body {
   z-index: 999;
 }
 
-/***** NOT FULLY SUPPORTED YET *****/
-/* Scroll State - show when page can be scrolled up */
-// @container page scroll-state(scrollable: top) {
-//   .backToTop {
-//     translate: 0 0;
-//     opacity: 1;
-//   }
-// }
-
 .wrapper {
   background-color: #000;
   height: 100vh;
@@ -102,13 +93,13 @@ nav:has(+ container > .halloweenWrapper) {
   }
   & li {
     display: inline-block;
-    margin: 5px 0;
+    margin: 5px 0 0;
     & a {
       color: orange;
       text-shadow: 2px 1px 1px #000;
       border: 1px solid orange;
       border-width: 1px 0;
-      margin: 3px 5px;
+      margin: 3px 5px 0;
       padding: 2px 5px;
       font-size: 14px;
       text-align: center;
