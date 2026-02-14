@@ -1,18 +1,21 @@
 #musicCalendar {
-    max-width:700px;
-    margin: 0 auto;
-    .layoutContainer > div {
-        &.attending {
-            background-color: yellow;
+  max-width: 700px;
+  margin: 0 auto;
+  .layoutContainer {
+    text-align: left;
+    & > div {
+      &.attending {
+        background-color: brown;
+      }
+      & span {
+        display: block;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding: 4px 0;
+        &.newMusic {
+          color: #999;
         }
-        & span {
-            display: block;
-            font-weight: bold;
-            text-transform: uppercase;
-            padding: 4px 0;
-            &.newMusic {
-                color: red;
-            }
-        }
+      }
     }
+  }
 }

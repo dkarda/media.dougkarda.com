@@ -7,21 +7,28 @@ body {
 }
 
 nav {
-  background-color: #333;
+  background-color: #000;
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: stretch;
   gap: 2rem;
   padding: 0 1rem;
+  & .site-title {
+    font-size: 2rem;
+    margin: auto;
+  }
   & ul {
     padding: 0;
     margin: 0;
     list-style: none;
     display: flex;
     gap: 0.2rem;
-    & .site-title {
-      font-size: 2rem;
+    & li.active {
+      background-color: #555;
+    }
+    & li:hover {
+      background-color: #777;
     }
   }
   & a {
@@ -31,16 +38,12 @@ nav {
     display: flex;
     align-items: center;
     padding: 0.25rem 0.5rem;
-  }
-  & li {
-    &.active {
-      background-color: #555;
+    &#nav-starwarswatchlist img {
+      background: #555;
     }
-    &:hover {
-      background-color: #777;
-    }
-    & a img {
+    & img {
       max-height: 40px;
+      margin-right: 0.5rem;
     }
   }
 }
@@ -54,52 +57,45 @@ nav .menu {
   justify-content: space-between;
   width: 2.25rem;
   height: 2rem;
-}
-
-nav .menu span {
-  height: 0.4rem;
-  width: 100%;
-  background-color: #fff;
-  border-radius: 0.2rem;
-}
-
-@media (min-width: 667px) {
-  nav ul li span {
-    display: none;
+  & span {
+    height: 0.4rem;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 0.2rem;
   }
 }
+
+// @media (min-width: 667px) {
+//   nav ul li span {
+//     display: none;
+//   }
+// }
 
 @media (max-width: 666px) {
   nav {
     flex-direction: column;
     align-items: start;
-  }
-
-  nav .menu {
-    display: flex;
-  }
-
-  nav ul {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    margin-bottom: 0.25rem;
-  }
-
-  nav ul.open {
-    display: flex;
-  }
-
-  nav ul li {
-    width: 100%;
-    text-align: center;
-  }
-
-  nav ul li img {
-    display: none;
-  }
-
-  nav ul li a {
-    margin: 0.2rem 0.5rem;
+    & .menu {
+      display: flex;
+    }
+    & ul {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      margin-bottom: 0.25rem;
+      &.open {
+        display: flex;
+      }
+      & li {
+        width: 100%;
+        text-align: center;
+        & img {
+          display: none;
+        }
+        & a {
+          margin: 0.2rem 0.5rem;
+        }
+      }
+    }
   }
 }

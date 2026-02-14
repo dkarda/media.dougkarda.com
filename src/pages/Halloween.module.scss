@@ -4,6 +4,30 @@ html {
 body {
   margin: 0;
 }
+#top {
+  container-type: scroll-state;
+  container-name: page;
+}
+
+.backToTop {
+  position: fixed;
+  display: flex;
+  bottom: 20px;
+  right: 20px;
+  background-color: orange;
+  translate: 150px 0;
+  transition: translate 0.3s ease, background 0.2s;
+  z-index: 999;
+}
+
+/***** NOT FULLY SUPPORTED YET *****/
+/* Scroll State - show when page can be scrolled up */
+// @container page scroll-state(scrollable: top) {
+//   .backToTop {
+//     translate: 0 0;
+//     opacity: 1;
+//   }
+// }
 
 .wrapper {
   background-color: #000;
@@ -111,7 +135,7 @@ nav:has(+ container > .halloweenWrapper) {
     }
     & .menu span {
       height: 0.3rem;
-      color: #FFF;
+      color: #fff;
     }
     & ul {
       display: none;

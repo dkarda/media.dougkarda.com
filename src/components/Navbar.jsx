@@ -41,14 +41,14 @@ const Navbar = () => {
               src="https://assets.dougkarda.com/images/icons/icon-movie-trans.png"
               alt="Movies icon"
             />
-            <div>Faves</div>
+            <div>Movie Proj Faves</div>
           </CustomLink>
           <CustomLink to="/halloween">
             <img
               src="https://assets.dougkarda.com/images/icons/icon-pumpkin-trans.png"
               alt="Halloween Pumpkin icon"
             />
-            <span>Halloween Pumpkins</span>
+            <span>Pumpkin Carvings</span>
           </CustomLink>
           {/* <CustomLink to="/movies">
                         <img src="https://assets.dougkarda.com/images/icons/icon-movie-trans.png"
@@ -70,7 +70,7 @@ const Navbar = () => {
               src="https://assets.dougkarda.com/images/icons/icon-starwars-trans.png"
               alt="Star Wars icon"
             />
-            <span>Star Wars Watch List</span>
+            <span>Star Wars Watchlist</span>
           </CustomLink>
           {/* <CustomLink to="/weather">
                         <img src="https://assets.dougkarda.com/images/icons/icon-weather-trans.png"
@@ -108,9 +108,10 @@ const Navbar = () => {
 function CustomLink({ to, children, ...props }) {
   const resolvedPath = useResolvedPath(to);
   const isActive = useMatch({ path: resolvedPath.pathname, end: true });
+  const id = `nav-${to.replace("/", "").toLowerCase()}`;
   return (
     <li className={isActive ? "active" : ""}>
-      <Link to={to} {...props}>
+      <Link to={to} id={id} {...props}>
         {children}
       </Link>
     </li>

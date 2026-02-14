@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
-import styles from "../styles/Halloween.module.scss";
+import styles from "./Halloween.module.scss";
 
 const Halloween = () => {
   const [halloweenMenuOpen, setHalloweenMenuOpen] = useState(false);
@@ -12,7 +12,8 @@ const Halloween = () => {
 
   return (
     <>
-      <div className={`${styles.wrapper} ${styles.halloweenWrapper}`}>
+      <div id="top" className={`${styles.wrapper} ${styles.halloweenWrapper}`}>
+        <a href="#top" className={styles.backToTop}>BACK TO TOP</a>
         <nav>
           <Link to="/" className={styles.siteTitle}>
             Home
